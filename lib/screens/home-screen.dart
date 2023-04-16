@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../controller/logic.dart';
 
-
-
-
-
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
+  const HomeScreen({super.key});
 
-  final String title;
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -47,16 +43,25 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text("Calc"),
+
         ),
+
         body: Column(
           children: <Widget>[
+
             Container(
                 alignment: Alignment.centerRight,
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
                 child: Text(calcLogic.postOutput,
                     style: const TextStyle(
                         fontSize: 48.0, fontWeight: FontWeight.bold))),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/converter');
+            },
+              child: const Text('Launch screen'),
+            ),
             const Expanded(
               child: Divider(),
             ),
